@@ -4,7 +4,12 @@ import viteReact from "@vitejs/plugin-react";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 export default defineConfig({
-  plugins: [viteReact(), TanStackRouterVite()],
+  plugins: [
+    viteReact(),
+    TanStackRouterVite({
+      routesDirectory: "src/routes",
+    }),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
