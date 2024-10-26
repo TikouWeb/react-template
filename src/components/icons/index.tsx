@@ -7,6 +7,7 @@ import {
   type LucideProps,
 } from "lucide-react";
 
+// All used icons should be declared here
 const iconMap = {
   Globe,
   ScanSearch,
