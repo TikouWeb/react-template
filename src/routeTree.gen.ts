@@ -11,20 +11,27 @@
 // Import Routes
 
 import { Route as rootRoute } from "./routes/__root";
-import { Route as LoginImport } from "./routes/login";
-import { Route as IndexImport } from "./routes/index";
+import { Route as HomeIndexImport } from "./routes/_home/index";
+import { Route as AuthSignUpImport } from "./routes/auth/sign-up";
+import { Route as AuthLoginImport } from "./routes/auth/login";
 
 // Create/Update Routes
 
-const LoginRoute = LoginImport.update({
-  id: "/login",
-  path: "/login",
+const HomeIndexRoute = HomeIndexImport.update({
+  id: "/_home/",
+  path: "/",
   getParentRoute: () => rootRoute,
 } as any);
 
-const IndexRoute = IndexImport.update({
-  id: "/",
-  path: "/",
+const AuthSignUpRoute = AuthSignUpImport.update({
+  id: "/auth/sign-up",
+  path: "/auth/sign-up",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const AuthLoginRoute = AuthLoginImport.update({
+  id: "/auth/login",
+  path: "/auth/login",
   getParentRoute: () => rootRoute,
 } as any);
 
@@ -32,18 +39,25 @@ const IndexRoute = IndexImport.update({
 
 declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    "/": {
-      id: "/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof IndexImport;
+    "/auth/login": {
+      id: "/auth/login";
+      path: "/auth/login";
+      fullPath: "/auth/login";
+      preLoaderRoute: typeof AuthLoginImport;
       parentRoute: typeof rootRoute;
     };
-    "/login": {
-      id: "/login";
-      path: "/login";
-      fullPath: "/login";
-      preLoaderRoute: typeof LoginImport;
+    "/auth/sign-up": {
+      id: "/auth/sign-up";
+      path: "/auth/sign-up";
+      fullPath: "/auth/sign-up";
+      preLoaderRoute: typeof AuthSignUpImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/_home/": {
+      id: "/_home/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof HomeIndexImport;
       parentRoute: typeof rootRoute;
     };
   }
@@ -52,38 +66,43 @@ declare module "@tanstack/react-router" {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute;
-  "/login": typeof LoginRoute;
+  "/auth/login": typeof AuthLoginRoute;
+  "/auth/sign-up": typeof AuthSignUpRoute;
+  "/": typeof HomeIndexRoute;
 }
 
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute;
-  "/login": typeof LoginRoute;
+  "/auth/login": typeof AuthLoginRoute;
+  "/auth/sign-up": typeof AuthSignUpRoute;
+  "/": typeof HomeIndexRoute;
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute;
-  "/": typeof IndexRoute;
-  "/login": typeof LoginRoute;
+  "/auth/login": typeof AuthLoginRoute;
+  "/auth/sign-up": typeof AuthSignUpRoute;
+  "/_home/": typeof HomeIndexRoute;
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/" | "/login";
+  fullPaths: "/auth/login" | "/auth/sign-up" | "/";
   fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "/login";
-  id: "__root__" | "/" | "/login";
+  to: "/auth/login" | "/auth/sign-up" | "/";
+  id: "__root__" | "/auth/login" | "/auth/sign-up" | "/_home/";
   fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  LoginRoute: typeof LoginRoute;
+  AuthLoginRoute: typeof AuthLoginRoute;
+  AuthSignUpRoute: typeof AuthSignUpRoute;
+  HomeIndexRoute: typeof HomeIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  LoginRoute: LoginRoute,
+  AuthLoginRoute: AuthLoginRoute,
+  AuthSignUpRoute: AuthSignUpRoute,
+  HomeIndexRoute: HomeIndexRoute,
 };
 
 export const routeTree = rootRoute
@@ -98,15 +117,19 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/login"
+        "/auth/login",
+        "/auth/sign-up",
+        "/_home/"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/auth/login": {
+      "filePath": "auth/login.tsx"
     },
-    "/login": {
-      "filePath": "login.tsx"
+    "/auth/sign-up": {
+      "filePath": "auth/sign-up.tsx"
+    },
+    "/_home/": {
+      "filePath": "_home/index.tsx"
     }
   }
 }

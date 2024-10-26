@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { AppSidebar } from "@/components/features/home/app-sidebar";
+import { createFileRoute } from '@tanstack/react-router'
+import { AppSidebar } from '@/components/features/home/app-sidebar'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,17 +7,17 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
+} from '@/components/ui/breadcrumb'
+import { Separator } from '@/components/ui/separator'
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar'
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute('/_home/')({
   component: Home,
-});
+})
 
 export default function Home() {
   return (
@@ -51,5 +51,5 @@ export default function Home() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  );
+  )
 }

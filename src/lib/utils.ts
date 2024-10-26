@@ -15,7 +15,6 @@ export const downloadFile = (blob: Blob | string, filename: string) => {
     link.href = blob;
   }
   link.download = filename;
-  console.log(link);
 
   // this is necessary as link.click() does not work on the latest firefox
   link.dispatchEvent(
