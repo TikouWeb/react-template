@@ -4,12 +4,12 @@ import viteReact from "@vitejs/plugin-react";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import { visualizer } from "rollup-plugin-visualizer";
 
+const isTest = process.env.NODE_ENV === "test";
+
 export default defineConfig({
   plugins: [
     viteReact(),
-    TanStackRouterVite({
-      routesDirectory: "src/routes",
-    }),
+    !isTest && TanStackRouterVite({ routesDirectory: "src/routes" }),
     visualizer({
       open: false,
       gzipSize: true,
