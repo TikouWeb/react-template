@@ -9,7 +9,7 @@ import userEvent from '@testing-library/user-event';
 
 const AppProviders = ({ children }: { children: React.ReactNode }) => (
   <I18TranslationProvider>
-    <ThemeProvider defaultTheme="system">{children}</ThemeProvider>
+    <ThemeProvider defaultTheme='system'>{children}</ThemeProvider>
   </I18TranslationProvider>
 );
 

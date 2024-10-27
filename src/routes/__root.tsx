@@ -8,11 +8,11 @@ export const Route = createRootRoute({
 function Root() {
   return (
     <>
-      <div className="flex gap-2 p-2">
-        <Link to="/" className="[&.active]:font-bold">
+      <div className='flex gap-2 p-2'>
+        <Link to='/' className='[&.active]:font-bold'>
           Home
         </Link>
-        <Link to="/auth/login" className="[&.active]:font-bold">
+        <Link to='/auth/login' className='[&.active]:font-bold'>
           About
         </Link>
       </div>

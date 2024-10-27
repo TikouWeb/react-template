@@ -19,7 +19,7 @@ const app = createRoot(document.getElementById('root')!);
 app.render(
   <StrictMode>
     <I18TranslationProvider>
-      <ThemeProvider defaultTheme="system">
+      <ThemeProvider defaultTheme='system'>
         <RouterProvider router={router} />
       </ThemeProvider>
     </I18TranslationProvider>
