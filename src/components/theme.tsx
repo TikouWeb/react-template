@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 const PORTFOLIO_UI_THEME_KEY = "protfolio-ui-theme";
 
@@ -65,3 +66,12 @@ export function ThemeProvider({
     </ThemeProviderContext.Provider>
   );
 }
+
+export const useTheme = () => {
+  const context = useContext(ThemeProviderContext);
+
+  if (context === undefined)
+    throw new Error("useTheme must be used within a ThemeProvider");
+
+  return context;
+};
