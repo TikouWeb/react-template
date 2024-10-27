@@ -3,7 +3,7 @@
 import React, { ReactElement } from "react";
 import { render as rtlRender, RenderOptions } from "@testing-library/react";
 import { I18TranslationProvider } from "@/lib/i18n";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/theme/theme-provider";
 
 import userEvent from "@testing-library/user-event";
 
