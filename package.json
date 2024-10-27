@@ -11,10 +11,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "postinstall": "husky"
+    "lint:fix": "eslint . --fix",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -78,7 +78,6 @@
     "eslint-plugin-react-refresh": "^0.4.12",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "globals": "^15.9.0",
-    "husky": "^9.1.6",
     "jsdom": "^25.0.1",
     "msw": "^2.5.0",
     "postcss": "^8.4.47",
