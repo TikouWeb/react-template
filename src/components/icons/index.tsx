@@ -5,7 +5,7 @@ import {
   Ellipsis,
   CloudDownload,
   type LucideProps,
-} from "lucide-react";
+} from 'lucide-react';
 
 // All used icons should be declared here
 const iconMap = {
@@ -18,7 +18,7 @@ const iconMap = {
 
 type IconName = keyof typeof iconMap;
 
-export interface IconDynamicProps extends Omit<LucideProps, "ref"> {
+export interface IconDynamicProps extends Omit<LucideProps, 'ref'> {
   iconName: IconName;
 }
 

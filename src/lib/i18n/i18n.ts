@@ -1,24 +1,24 @@
-import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
-import Backend from "i18next-http-backend";
-import LanguageDetector from "i18next-browser-languagedetector";
+import i18n from 'i18next';
+import { useTranslation, initReactI18next } from 'react-i18next';
+import Backend from 'i18next-http-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: "en",
+    fallbackLng: 'en',
     debug: true,
     backend: {
-      loadPath: "/locales/{{lng}}/{{ns}}.json",
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
 
-    ns: ["common"],
-    defaultNS: "common",
+    ns: ['common'],
+    defaultNS: 'common',
     react: {
-      bindI18n: "languageChanged loaded",
-      nsMode: "default",
+      bindI18n: 'languageChanged loaded',
+      nsMode: 'default',
       useSuspense: true,
     },
   });

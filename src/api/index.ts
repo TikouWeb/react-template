@@ -1,3 +1,1 @@
-export const getSomething = () => {
-  return null;
-};
+export const getSomething = () => null;
